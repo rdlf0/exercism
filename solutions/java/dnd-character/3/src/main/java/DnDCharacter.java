@@ -1,0 +1,59 @@
+import java.util.concurrent.ThreadLocalRandom;
+
+class DnDCharacter {
+
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
+    private int hitpoints;
+
+    public DnDCharacter() {
+        this.strength = this.ability();
+        this.dexterity = this.ability();
+        this.constitution = this.ability();
+        this.intelligence = this.ability();
+        this.wisdom = this.ability();
+        this.charisma = this.ability();
+        this.hitpoints = this.modifier(this.constitution) + 10;
+    }
+
+    int ability() {
+        return ThreadLocalRandom.current().nextInt(3, 19);
+    }
+
+    int modifier(int input) {
+        return (int) Math.floor((input - 10) / 2.0);
+    }
+
+    int getStrength() {
+        return this.strength;
+    }
+
+    int getDexterity() {
+        return this.dexterity;
+    }
+
+    int getConstitution() {
+        return this.constitution;
+    }
+
+    int getIntelligence() {
+        return this.intelligence;
+    }
+
+    int getWisdom() {
+        return this.wisdom;
+    }
+
+    int getCharisma() {
+        return this.charisma;
+    }
+
+    int getHitpoints() {
+        return this.hitpoints;
+    }
+
+}
